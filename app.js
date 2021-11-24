@@ -5,7 +5,7 @@ const BodyParser = require("body-parser");
 
 const Mongoose = require("mongoose");
     // Routes
-    const Cadastro = require("./addEstagiarioRoutes");
+    const Cadastro = require("./routes/addEstagiarioRoutes");
 
 // Iniciando express
 const app = Express();

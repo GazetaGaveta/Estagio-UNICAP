@@ -1,0 +1,27 @@
+<h2>Lista de estagiários</h2>
+
+
+{{#each estagiarios}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>{{nome}}</h2>
+            <h6>dataNascimento: {{dataNascimento}}</h6>
+            <h6>registroAcademico: {{registroAcademico}}</h6>
+            <h6>curso: {{curso}}</h6>
+            <h6>turno: {{turno}}</h6>
+            <h6>cedulaDeIdentidade: {{cedulaDeIdentidade}}</h6>
+            <h6>cpf: {{cpf}}</h6>
+            <h6>nacionalidade: {{nacionalidade}}</h6>
+            <h6>estadoCivil: {{estadoCivil}}</h6>
+            <h6>cidade: {{cidade}}</h6>
+            <h6>estado: {{estado}}</h6>
+            <h6>cep: {{cep}}</h6>
+            <h6>fone: {{fone}}</h6>
+            <h6>email: {{email}}</h6>
+            <small>Data de criação: {{registerDate}}</small>
+            <br>
+        </div>
+    </div>
+{{else}}
+    <h4 class="mt-3">Nenhum estagiário registrado</h4>
+{{/each}}

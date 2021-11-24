@@ -2,7 +2,7 @@ const Express = require("express");
 const Router = Express.Router();
 
 const Mongoose = require("mongoose");
-require("../src/models/Estagiario")
+require("../models/Estagiario")
 const Estagiario = Mongoose.model("estagiarios");
 
 Router.get('/cadastro', (req, res) => {
