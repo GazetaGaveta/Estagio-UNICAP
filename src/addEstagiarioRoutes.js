@@ -39,7 +39,7 @@ Router.post('/cadastro/novo', (req, res) => {
         email: req.body.email,
     };
     
-    if(!validarNome(req.body.nome)){
+    if(!validarEstagiario(estagiarioDigitado)){
         res.redirect("/estagiarios/cadastro");
         return;
     }
@@ -71,8 +71,78 @@ Router.post('/cadastro/novo', (req, res) => {
     }
 });
 
+function validarEstagiario(estagiario){
+    return
+    validarNome(estagiario.nome) ||
+    validarDataNascimento(estagiario.dataNascimento) ||
+    validarRegistroAcademico ||
+    validarCurso ||
+    validarTurno || 
+    validarCedulaDeIdentidade || 
+    validarCpf || 
+    validarNacionalidade ||
+    validarEstadoCivil || 
+    validarCidade || 
+    validarEstado ||
+    validarCep ||
+    validarFone ||
+    validarEmail;
+}
+
 function validarNome(nome){
-    return !(!nome || typeof nome || nome == null);
+    return !(!nome || typeof nome == undefined || nome == null);
+};
+
+function validarDataNascimento(dataNascimento){
+    return !(!dataNascimento || typeof dataNascimento == undefined || dataNascimento == null);
+};
+
+function validarRegistroAcademico(registroAcademico){
+    return !(!registroAcademico || typeof registroAcademico == undefined || registroAcademico == null);
+};
+
+function validarCurso(curso){
+    return !(!curso || typeof curso == undefined || curso == null);
+};
+
+function validarTurno(turno){
+    return !(!turno || typeof turno == undefined || turno == null);
+};
+
+function validarCedulaDeIdentidade(cedulaDeIdentidade){
+    return !(!cedulaDeIdentidade || typeof cedulaDeIdentidade == undefined || cedulaDeIdentidade == null);
+};
+
+function validarCpf(cpf){
+    return !(!cpf || typeof cpf == undefined || cpf == null);
+};
+
+function validarNacionalidade(nacionalidade){
+    return !(!nacionalidade || typeof nacionalidade == undefined || nacionalidade == null);
+};
+
+function validarEstadoCivil(estadoCivil){
+    return !(!estadoCivil || typeof estadoCivil == undefined || estadoCivil == null);
+};
+
+function validarCidade(cidade){
+    return !(!cidade || typeof cidade == undefined || cidade == null);
+};
+
+function validarEstado(estado){
+    return !(!estado || typeof estado == undefined || estado == null);
+};
+
+function validarCep(cep){
+    return !(!cep || typeof cep == undefined || cep == null);
+};
+
+function validarFone(fone){
+    return !(!fone || typeof fone == undefined || fone == null);
+};
+
+function validarEmail(email){
+    return !(!email || typeof email == undefined || email == null);
 };
 
 module.exports = Router;
