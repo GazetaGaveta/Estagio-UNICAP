@@ -1,8 +1,82 @@
-<h2>Lista de estagiários</h2>
+<h2 class=" m-2 mt-3 ms-5">Lista de estagiários</h2>
 
 
 {{#each estagiarios}}
-    <div class="card mt-4">
+
+    <div class="card m-2 ms-5" style="width: 60%;">
+        <h4 class="card-header">
+            {{nome}}
+        </h4>
+        <div class="card-body row row-cols-5">
+            <div>
+                <h6 class="card-title">Data de Nascimento: </h6>
+                <p>{{dataNascimento}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Registro Academico: </h6>
+                <p>{{registroAcademico}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Curso: </h6>
+                <p>{{curso}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Turno: </h6>
+                <p>{{turno}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cédula de identidade: </h6>
+                <p>{{cedulaDeIdentidade}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cpf: </h6>
+                <p>{{cpf}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Nacionalidade: </h6>
+                <p>{{nacionalidade}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Estado Civil: </h6>
+                <p>{{estadoCivil}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cidade: </h6>
+                <p>{{cidade}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Estado: </h6>
+                <p>{{estado}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cep: </h6>
+                <p>{{cep}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Telefone: </h6>
+                <p>{{fone}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Email: </h6>
+                <p>{{email}}</p>
+            </div>
+
+        </div>
+    </div>
+<!-- 
+    <div class="card">
         <div class="card-body">
             <h3>{{nome}}</h2>
             <h6>dataNascimento: {{dataNascimento}}</h6>
@@ -22,6 +96,7 @@
             <br>
         </div>
     </div>
+-->
 {{else}}
     <h4 class="mt-3">Nenhum estagiário registrado</h4>
 {{/each}}
