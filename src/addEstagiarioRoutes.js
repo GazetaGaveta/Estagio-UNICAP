@@ -73,6 +73,7 @@ Router.post('/cadastro/novo', (req, res) => {
 });
 
 function validarEstagiario(estagiario){
+    console.log(validarCpf(estagiario.cpf));
 
     return validarNome(estagiario.nome) &
     validarDataNascimento(estagiario.dataNascimento) &
@@ -137,7 +138,62 @@ function validarCedulaDeIdentidade(cedulaDeIdentidade){
 };
 
 function validarCpf(cpf){
-    return !isEmpyt(cpf);
+
+    if (isEmpyt(cpf)){
+        return false;
+    }
+
+    let cpfArray = [];
+    let i;
+
+    Array.from(cpf).forEach(element => {
+        i = parseInt(element);
+        if(!(i >= 0 && i <= 9) || cpfArray.length > 11){
+            return false;
+        }
+        cpfArray.push(i);
+    });
+
+    cpfString = cpfArray.toString().replace(/,/gi, "",);
+    // Elimina CPFs invalidos conhecidos	
+    if (cpfString == "00000000000" || 
+        cpfString == "11111111111" || 
+        cpfString == "22222222222" || 
+        cpfString == "33333333333" || 
+        cpfString == "44444444444" || 
+        cpfString == "55555555555" || 
+        cpfString == "66666666666" || 
+        cpfString == "77777777777" || 
+        cpfString == "88888888888" || 
+        cpfString == "99999999999")
+        {
+            return false;
+        }
+
+    // Valida 1o digito	
+    add = 0;	
+    for (i=0; i < 9; i ++)		
+        add += cpfArray[i] * (10 - i);	
+        rev = 11 - (add % 11);	
+        if (rev == 10 || rev == 11)	{
+            rev = 0;
+        }	
+        if (rev != cpfArray[9]){
+            return false;	
+        }
+
+    // Valida 2o digito	
+    add = 0;	
+    for (i = 0; i < 10; i ++)		
+        add += cpfArray[i] * (11 - i);	
+    rev = 11 - (add % 11);	
+    if (rev == 10 || rev == 11){
+        rev = 0;
+    }	
+    if (rev != cpfArray[10]){
+        return false;
+    }	
+    return true;   
 };
 
 function validarNacionalidade(nacionalidade){
