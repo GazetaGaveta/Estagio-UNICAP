@@ -1,40 +1,32 @@
 const Mongoose = require("mongoose");
 const Schema = Mongoose.Schema;
 
-const Estagiario = new Schema({
-    nome: {
+/*
+Razão Social:      	CNPJ/MF      
+
+Endereço:       Bairro:      
+
+Cidade:       Estado:       CEP:        Fone(s):        e-mail:      
+
+Representante Legal:       Cargo:      
+
+Profissional Liberal – Registro Profissional nº:       Órgão:      
+*/
+
+const UnidadeConcedente = new Schema({
+    razaoSocial: {
         type: String,
         required: true
     },
-    dataNascimento: {
+    cnpjOuMf: {
         type: String,
         required: true
     },
-    registroAcademico: {
+    endereço: {
         type: String,
         required: true
     },
-    curso: {
-        type: String,
-        required: true
-    },
-    turno: {
-        type: String,
-        required: true
-    },
-    cedulaDeIdentidade: {
-        type: String,
-        required: true
-    },
-    cpf: {
-        type: String,
-        required: true
-    },
-    nacionalidade: {
-        type: String,
-        required: true
-    },
-    estadoCivil: {
+    bairro: {
         type: String,
         required: true
     },
@@ -58,10 +50,22 @@ const Estagiario = new Schema({
         type: String,
         required: true
     },
-    registerDate: {
-        type: Date,
-        default: Date.now()
+    representanteLegal: {
+        type: String,
+        required: true
+    },
+    cargo: {
+        type: String,
+        required: true
+    },
+    profissionalRegistroOuLiberal: {
+        type: String,
+        required: true
+    },
+    orgao: {
+        type: String,
+        required: true
     }
 });
 
-Mongoose.model("estagiarios", Estagiario);
+Mongoose.model("unidadesConcedentes", UnidadeConcedente);
