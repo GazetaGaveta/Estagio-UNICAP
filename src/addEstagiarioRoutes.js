@@ -73,7 +73,6 @@ Router.post('/cadastro/novo', (req, res) => {
 });
 
 function validarEstagiario(estagiario){
-    console.log(validarCpf(estagiario.cpf));
 
     return validarNome(estagiario.nome) &
     validarDataNascimento(estagiario.dataNascimento) &
@@ -145,14 +144,19 @@ function validarCpf(cpf){
 
     let cpfArray = [];
     let i;
+    let element;
 
-    Array.from(cpf).forEach(element => {
-        i = parseInt(element);
-        if(!(i >= 0 && i <= 9) || cpfArray.length > 11){
+    for(i = 0; i < cpf.length; i++){
+        element = parseInt(cpf[i]);
+        if(!(element >= 0 && element <= 9) || cpfArray.length > 11){
             return false;
         }
-        cpfArray.push(i);
-    });
+        cpfArray.push(element);
+    }
+
+    if(cpfArray.length < 11){
+        return false;
+    }
 
     cpfString = cpfArray.toString().replace(/,/gi, "",);
     // Elimina CPFs invalidos conhecidos	
@@ -217,7 +221,28 @@ function validarCep(cep){
 };
 
 function validarFone(fone){
-    return !isEmpyt(fone);
+
+    if(isEmpyt(fone)){
+        return false;
+    }
+
+    let foneArray = [];
+    let i;
+    let element;
+
+    for(i = 0; i < fone.length; i++){
+        element = parseInt(fone[i]);
+        if(!(element >= 0 && element <= 9) || foneArray.length > 11){
+            return false;
+        }
+        foneArray.push(element);
+    }
+
+    if(foneArray.length < 10){
+        return false;
+    }
+
+    return true;
 };
 
 function validarEmail(email){
