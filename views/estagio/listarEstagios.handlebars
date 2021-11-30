@@ -1,0 +1,84 @@
+<h2 class=" m-2 mt-3 ms-5">Lista de estágios</h2>
+
+{{#each estagios}}
+
+    <div class="card m-2 ms-5" style="width: 60%;">
+        <h4 class="card-header">
+            {{nome}}
+        </h4>
+        <div class="card-body row row-cols-5">
+            <div>
+                <h6 class="card-title">Natureza: </h6>
+                <p>{{natureza}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Vigencia: </h6>
+                <p>Vigencia de {{vigenciaInicial}} a {{vigenciaFinal}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Dias: </h6>
+                <p>{{dias}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Horário: </h6>
+                <p>{{horario}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Horas diárias: </h6>
+                <p>{{qtdhorasDiarias}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Horas semanais: </h6>
+                <p>{{qtdHorasSemanais}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Local: </h6>
+                <p>{{local}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Supervisor: </h6>
+                <p>{{supervisor}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cargo: </h6>
+                <p>{{cargo}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Apólice de Seguro: </h6>
+                <p>{{apoliceDeSeguro}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Seguradora: </h6>
+                <p>{{seguradora}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Bolsa-Estágio: </h6>
+                <p>R$ {{bolsaEstagio}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Auxílio-Transporte: </h6>
+                <p>{{auxilioTransporte}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Plano de atividades: </h6>
+                <p>{{planoDeAtividades}}</p>
+            </div>
+
+        </div>
+    </div>
+{{else}}
+    <h4 class="mt-3">Nenhum estágio registrado</h4>
+{{/each}}

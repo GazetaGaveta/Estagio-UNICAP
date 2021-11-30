@@ -9,13 +9,13 @@ var estagiarioDigitado = {};
 
 
 Router.get('/cadastro', (req, res) => {
-    res.render('cadastroEstagiario', estagiarioDigitado);
+    res.render('estagiario/cadastroEstagiario', estagiarioDigitado);
     //res.send("Página de cadastro de estagiário");
 });
 
 Router.get('/listar', (req, res) => {
     Estagiario.find().sort({registerDate: "desc"}).then((estagiarios) => {
-        res.render('listarEstagiarios', {estagiarios: estagiarios.map(estagiarios => estagiarios.toJSON())});
+        res.render('estagiario/listarEstagiarios', {estagiarios: estagiarios.map(estagiarios => estagiarios.toJSON())});
     });
     //res.send("Página de cadastro de estagiário");
 });

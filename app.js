@@ -5,7 +5,8 @@ const BodyParser = require("body-parser");
 
 const Mongoose = require("mongoose");
     // Routes
-    const Cadastro = require("./routes/addEstagiarioRoutes");
+    const Estagiario = require("./routes/EstagiarioRoutes");
+    const Estagio = require("./routes/EstagioRoutes");
 
 // Iniciando express
 const app = Express();
@@ -30,7 +31,8 @@ const PORT = 8080;
     }
 
 // Rotas
-app.use('/estagiarios', Cadastro);
+app.use('/estagiarios', Estagiario);
+app.use('/estagios', Estagio);
 
 // Fazer o servidor escutar na porta. Listen(Sempre por ultimo)
 app.listen(PORT, () => {
