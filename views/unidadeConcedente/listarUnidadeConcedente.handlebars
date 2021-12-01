@@ -1,0 +1,74 @@
+<h2 class=" m-2 mt-3 ms-5">Lista de Unidades Concedentes</h2>
+
+{{#each estagios}}
+
+    <div class="card m-2 ms-5" style="width: 60%;">
+        <h4 class="card-header">
+            {{nome}}
+        </h4>
+        <div class="card-body row row-cols-5">
+            <div>
+                <h6 class="card-title">Razão Social: </h6>
+                <p>{{razaoSocial}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">CNPJ ou MF: </h6>
+                <p>{{cnpjOuMf}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Endereço: </h6>
+                <p>{{endereço}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Bairro: </h6>
+                <p>{{bairro}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cidade: </h6>
+                <p>{{cidade}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Estado: </h6>
+                <p>{{estado}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Fone: </h6>
+                <p>{{fone}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Email: </h6>
+                <p>{{email}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Representante Legal: </h6>
+                <p>{{representanteLegal}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Cargo: </h6>
+                <p>{{cargo}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Registro Profissional ou Profisional Liberal: </h6>
+                <p>{{profissionalRegistroOuLiberal}}</p>
+            </div>
+
+            <div>
+                <h6 class="card-title">Orgão: </h6>
+                <p>R$ {{orgao}}</p>
+            </div>
+
+        </div>
+    </div>
+{{else}}
+    <h4 class="mt-3">Nenhuma Unidade Concedente registrada</h4>
+{{/each}}
