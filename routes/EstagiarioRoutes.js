@@ -93,8 +93,16 @@ function isEmpyt(value){
     return (!value || typeof value == undefined || value == null);
 }
 
+function isMinimunCharacter(value){
+    return value.length >= 3; 
+}
+
+function validarTamanho(value){
+    return !isEmpyt(value) && isMinimunCharacter(value);
+}
+
 function validarNome(nome){
-    return !isEmpyt(nome);
+    return validarTamanho(nome);
 };
 
 function validarDataNascimento(dataNascimento){
@@ -120,19 +128,19 @@ function validarDataNascimento(dataNascimento){
 };
 
 function validarRegistroAcademico(registroAcademico){
-    return !isEmpyt(registroAcademico);
+    return validarTamanho(registroAcademico);
 };
 
 function validarCurso(curso){
-    return !isEmpyt(curso);
+    return validarTamanho(curso);
 };
 
 function validarTurno(turno){
-    return !isEmpyt(turno);
+    return validarTamanho(turno);
 };
 
 function validarCedulaDeIdentidade(cedulaDeIdentidade){
-    return !isEmpyt(cedulaDeIdentidade);
+    return validarTamanho(cedulaDeIdentidade);
 };
 
 function validarCpf(cpf){
@@ -200,23 +208,23 @@ function validarCpf(cpf){
 };
 
 function validarNacionalidade(nacionalidade){
-    return !isEmpyt(nacionalidade);
+    return validarTamanho(nacionalidade);
 };
 
 function validarEstadoCivil(estadoCivil){
-    return !isEmpyt(estadoCivil);
+    return validarTamanho(estadoCivil);
 };
 
 function validarCidade(cidade){
-    return !isEmpyt(cidade);
+    return validarTamanho(cidade);
 };
 
 function validarEstado(estado){
-    return !isEmpyt(estado);
+    return validarTamanho(estado);
 };
 
 function validarCep(cep){
-    return !isEmpyt(cep);
+    return validarTamanho(cep);
 };
 
 function validarFone(fone){
@@ -245,7 +253,7 @@ function validarFone(fone){
 };
 
 function validarEmail(email){
-    return !isEmpyt(email) && email.indexOf("@") != -1;
+    return validarTamanho(email) && email.indexOf("@") != -1;
 };
 
 module.exports = Router;

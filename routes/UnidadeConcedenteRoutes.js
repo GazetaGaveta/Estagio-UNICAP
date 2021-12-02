@@ -3,21 +3,21 @@ const Router = Express.Router();
 
 const Mongoose = require("mongoose");
 require("../models/UnidadeConcedente")
-const Estagiario = Mongoose.model("unidadesConcedentes");
+const UnidadeConcedente = Mongoose.model("unidadesConcedentes");
 
 Router.get('/cadastro', (req, res) => {
     res.render('unidadeConcedente/cadastroUnidadeConcedente');
 });
 
 Router.get('/listar', (req, res) => {
-    Estagiario.find().sort({registerDate: "desc"}).then((estagios) => {
-        res.render('unidadeConcedente/listarUnidadeConcedente', {estagios: estagios.map(estagios => estagios.toJSON())});
+    UnidadeConcedente.find().sort({registerDate: "desc"}).then((unidadeConcedente) => {
+        res.render('unidadeConcedente/listarUnidadeConcedente', {unidadeConcedente: unidadeConcedente.map(unidadeConcedente => unidadeConcedente.toJSON())});
     });
 });
 
 Router.post('/cadastro/novo', (req, res) => {
 
-    const novoEstagio = {
+    const novaUnidadeConcedente = {
         razaoSocial: req.body.razaoSocial,
         cnpjOuMf: req.body.cnpjOuMf,
         endereço: req.body.endereço,
@@ -33,13 +33,13 @@ Router.post('/cadastro/novo', (req, res) => {
         orgao: req.body.orgao
     };
 
-    let save = new Estagio(novoEstagio);
+    let save = new UnidadeConcedente(novaUnidadeConcedente);
 
     try{
         save.save();
-        res.redirect("/estagios/listar");
+        res.redirect("/concedente/listar");
     }catch(err){
-        console.log("falhou a criação da categoria: " + err);
+        console.log("falhou a criação da unidade concedente: " + err);
     }
 });
 

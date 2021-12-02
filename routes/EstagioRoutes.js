@@ -3,14 +3,14 @@ const Router = Express.Router();
 
 const Mongoose = require("mongoose");
 require("../models/Estagio")
-const Estagiario = Mongoose.model("estagios");
+const Estagio = Mongoose.model("estagios");
 
 Router.get('/cadastro', (req, res) => {
     res.render('estagio/cadastroEstagio');
 });
 
 Router.get('/listar', (req, res) => {
-    Estagiario.find().sort({registerDate: "desc"}).then((estagios) => {
+    Estagio.find().sort({registerDate: "desc"}).then((estagios) => {
         res.render('estagio/listarEstagios', {estagios: estagios.map(estagios => estagios.toJSON())});
     });
 });

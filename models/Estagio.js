@@ -77,6 +77,10 @@ const Estagio = new Schema({
     planoDeAtividades: {
         type: String,
         required: true
+    },
+    registerDate: {
+        type: Date,
+        default: Date.now()
     }
 });
 

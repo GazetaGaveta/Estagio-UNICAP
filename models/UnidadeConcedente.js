@@ -65,6 +65,10 @@ const UnidadeConcedente = new Schema({
     orgao: {
         type: String,
         required: true
+    },
+    registerDate: {
+        type: Date,
+        default: Date.now()
     }
 });
 
