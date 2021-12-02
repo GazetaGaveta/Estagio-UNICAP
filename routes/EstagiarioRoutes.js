@@ -67,7 +67,7 @@ Router.post('/cadastro/novo', (req, res) => {
         res.redirect("/estagiarios/listar");
         estagiarioDigitado = {};
     }catch(err){
-        console.log("falhou a criação da categoria: " + err);
+        console.log("falhou a criação do estagiário: " + err);
     }
 });
 

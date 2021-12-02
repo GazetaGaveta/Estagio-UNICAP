@@ -41,7 +41,7 @@ Router.post('/cadastro/novo', (req, res) => {
         save.save();
         res.redirect("/estagios/listar");
     }catch(err){
-        console.log("falhou a criação da categoria: " + err);
+        console.log("falhou a criação do estágio: " + err);
     }
 });
 
