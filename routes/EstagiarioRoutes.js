@@ -5,6 +5,8 @@ const Mongoose = require("mongoose");
 require("../models/Estagiario")
 const Estagiario = Mongoose.model("estagiarios");
 
+const estagiarioValidation = require('../estagiarioValidation');
+
 var estagiarioDigitado = {};
 
 
@@ -73,22 +75,23 @@ Router.post('/cadastro/novo', (req, res) => {
 
 function validarEstagiario(estagiario){
 
-    return validarNome(estagiario.nome) &
-    validarDataNascimento(estagiario.dataNascimento) &
-    validarRegistroAcademico(estagiario.registroAcademico) &
-    validarCurso(estagiario.curso) &
-    validarTurno(estagiario.turno) &
-    validarCedulaDeIdentidade(estagiario.cedulaDeIdentidade) &
-    validarCpf(estagiario.cpf) &
-    validarNacionalidade(estagiario.nacionalidade) &
-    validarEstadoCivil(estagiario.estadoCivil) &
-    validarCidade(estagiario.cidade) &
-    validarEstado(estagiario.estado) &
-    validarCep(estagiario.cep) &
-    validarFone(estagiario.fone) &
-    validarEmail(estagiario.email);
+    return estagiarioValidation.validarNome(estagiario.nome) &
+    estagiarioValidation.validarDataNascimento(estagiario.dataNascimento) &
+    estagiarioValidation.validarRegistroAcademico(estagiario.registroAcademico) &
+    estagiarioValidation.validarCurso(estagiario.curso) &
+    estagiarioValidation.validarTurno(estagiario.turno) &
+    estagiarioValidation.validarCedulaDeIdentidade(estagiario.cedulaDeIdentidade) &
+    estagiarioValidation.validarCpf(estagiario.cpf) &
+    estagiarioValidation.validarNacionalidade(estagiario.nacionalidade) &
+    estagiarioValidation.validarEstadoCivil(estagiario.estadoCivil) &
+    estagiarioValidation.validarCidade(estagiario.cidade) &
+    estagiarioValidation.validarEstado(estagiario.estado) &
+    estagiarioValidation.validarCep(estagiario.cep) &
+    estagiarioValidation.validarFone(estagiario.fone) &
+    estagiarioValidation.validarEmail(estagiario.email);
 }
 
+/*
 function isEmpyt(value){
     return (!value || typeof value == undefined || value == null);
 }
@@ -255,5 +258,5 @@ function validarFone(fone){
 function validarEmail(email){
     return validarTamanho(email) && email.indexOf("@") != -1;
 };
-
+*/
 module.exports = Router;
