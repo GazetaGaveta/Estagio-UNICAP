@@ -34,7 +34,7 @@ const PORT = 8080;
 // Rotas
 app.use('/estagiarios', Estagiario);
 app.use('/estagios', Estagio);
-app.use('/concedente', UnidadeConcedente);
+app.use('/concedentes', UnidadeConcedente);
 
 // Fazer o servidor escutar na porta. Listen(Sempre por ultimo)
 app.listen(PORT, () => {
