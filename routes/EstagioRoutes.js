@@ -5,13 +5,61 @@ const Mongoose = require("mongoose");
 require("../models/Estagio")
 const Estagio = Mongoose.model("estagios");
 
+const calculoEstagio = require('../calculosEstagio');
+
 Router.get('/cadastro', (req, res) => {
     res.render('estagio/cadastroEstagio');
 });
 
 Router.get('/listar', (req, res) => {
+
+/*
+    let partes = Date.now();
+
+    let day = parseInt(partes.getDate());
+    let month = parseInt(partes.getMonth());
+    let year = parseInt(partes.getFullYear());
+
+    let final = new Date(`${month}/${day}/${year}`);*/
+
     Estagio.find().sort({registerDate: "desc"}).then((estagios) => {
-        res.render('estagio/listarEstagios', {estagios: estagios.map(estagios => estagios.toJSON())});
+
+        estagios = estagios.map(estagios => estagios.toJSON());
+
+
+        let partes = estagios[0].vigenciaInicial.toString().split('/');
+
+        let day = parseInt(partes[0]);
+        let month = parseInt(partes[1]);
+        let year = parseInt(partes[2]);
+
+        let inicio = new Date(`${month}/${day}/${year}`);
+
+        partes = estagios[0].vigenciaFinal.toString().split('/');
+
+        day = parseInt(partes[0]);
+        month = parseInt(partes[1]);
+        year = parseInt(partes[2]);
+
+        final = new Date(`${month}/${day}/${year}`);
+
+        //console.log();
+        estagios[0].diasTrabalhados = calculoEstagio.calcularDiasTrabalhados(inicio, final);
+
+        //console.log(estagios[0].diasTrabalhados);
+        /*
+        let partes = estagios.vigenciaInicial.toString().split('/');
+
+        let day = parseInt(partes[0]);
+        let month = parseInt(partes[1]);
+        let year = parseInt(partes[2]);
+
+        let inicio = new Date(`${month}/${day}/${year}`);
+
+        estagios.diasTrabalhados = calcularDiasTrabalhados(inicio, Date.now());
+        */
+        //res.render('estagio/listarEstagios', {estagios: estagios.map(estagios => estagios.toJSON())});
+        res.render('estagio/listarEstagios', {estagios})
     });
 });
 

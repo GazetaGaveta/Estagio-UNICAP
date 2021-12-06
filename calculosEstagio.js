@@ -1,5 +1,30 @@
 function calcularDiasTrabalhados(dataInicio, dataAtual)
 {
+    let qtdDias = 0;
+    let inicio = new Date(dataInicio);
+    let atual = new Date(dataAtual);
+
+    console.log(inicio);
+    console.log(dataAtual);
+    
+    let dataDiaSeguinte = atual;
+    dataDiaSeguinte.setDate(dataDiaSeguinte.getDate() + 1);
+
+    console.log(dataDiaSeguinte);
+
+    while(Date.parse(inicio) !== Date.parse(dataDiaSeguinte)){
+
+        if(inicio.getDay() != 0 && inicio.getDay() != 6){
+            qtdDias++;
+        }
+
+        inicio.setDate(inicio.getDate() + 1);
+    }
+
+    return qtdDias;
+}
+/*function calcularDiasTrabalhados(dataInicio, dataAtual)
+{
 
     let qtdDias = 0;
     let inicio = new Date(dataInicio);
@@ -18,7 +43,7 @@ function calcularDiasTrabalhados(dataInicio, dataAtual)
     }
 
     return qtdDias;
-}
+}*/
 
 function calcularHorasTrabalhadas(dataInicio, dataAtual, horasDiarias){
 
