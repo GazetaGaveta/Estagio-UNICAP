@@ -1,6 +1,6 @@
 function calcularDiasTrabalhados(dataInicio, dataAtual)
 {
-
+    
     let qtdDias = 0;
     let inicio = new Date(dataInicio);
     let atual = new Date(dataAtual);
@@ -8,7 +8,10 @@ function calcularDiasTrabalhados(dataInicio, dataAtual)
     let dataDiaSeguinte = atual;
     dataDiaSeguinte.setDate(dataDiaSeguinte.getDate() + 1);
 
-    while(Date.parse(inicio) !== Date.parse(dataDiaSeguinte)){
+    console.log(dataDiaSeguinte);
+    
+
+    while(Date.parse(inicio) < Date.parse(dataDiaSeguinte)){
 
         if(inicio.getDay() != 0 && inicio.getDay() != 6){
             qtdDias++;
