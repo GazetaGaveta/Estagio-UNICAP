@@ -1,15 +1,36 @@
-function calcularDiasTrabalhados(dataInicio, dataAtual)
+function calcularDiasTrabalhados(dataInicial)
 {
-    
+
+    let dataFinal = Date.now();
+    dataFinal = new Date(dataFinal);
+
+    ///////
+    let partes = dataInicial.toJSON().split('-');
+
+    let day = parseInt(partes[1]);
+    let month = parseInt(`${partes[2][0] + partes[2][1]}`);
+    let year = parseInt(partes[0]);
+
+    dataInicial = new Date(`${month}/${day}/${year}`);
+    ////////
+
+    //////////
+    partes = dataFinal.toJSON().split('-');
+
+    day = parseInt(`${partes[2][0] + partes[2][1]}`);
+    month = parseInt(partes[1]);
+    year = parseInt(partes[0]);
+
+    dataFinal = new Date(`${month}/${day}/${year}`);
+    ///////
+
+
     let qtdDias = 0;
-    let inicio = new Date(dataInicio);
-    let atual = new Date(dataAtual);
+    let inicio = new Date(dataInicial);
+    let atual = new Date(dataFinal);
     
     let dataDiaSeguinte = atual;
     dataDiaSeguinte.setDate(dataDiaSeguinte.getDate() + 1);
-
-    console.log(dataDiaSeguinte);
-    
 
     while(Date.parse(inicio) < Date.parse(dataDiaSeguinte)){
 
