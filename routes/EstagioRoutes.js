@@ -3,12 +3,21 @@ const Router = Express.Router();
 
 const Mongoose = require("mongoose");
 require("../models/Estagio")
+require("../models/Estagiario")
 const Estagio = Mongoose.model("estagios");
+const Estagiario = Mongoose.model("estagiarios");
+
 
 const CalculosEstagio = require("../calculosEstagio");
 
-Router.get('/cadastro', (req, res) => {
-    res.render('estagio/cadastroEstagio');
+Router.get('/cadastro', async (req, res) => {
+
+    let estagiarios = await Estagiario.find();
+    estagiarios = estagiarios.map(estagiarios => estagiarios.toObject());
+
+    //console.log(estagiarios);
+
+    res.render('estagio/cadastroEstagio', {estagiarios: estagiarios});
 });
 
 Router.get('/listar', async (req, res) => {
@@ -18,16 +27,22 @@ Router.get('/listar', async (req, res) => {
     //esta[0]["diasTrabalhados"] = CalculosEstagio.calcularDiasTrabalhados(esta[0].vigenciaInicial, esta[0].vigenciaFinal);
     aux = estagios.map(estagios => estagios.toObject());
 
-    dataInicial = new Date(aux[0].vigenciaInicial);
+    for(i = 0; i < aux.length; i++){
 
-    aux[0].diasTrabalhados = CalculosEstagio.calcularDiasTrabalhados(dataInicial);
+        dataInicial = new Date(aux[i].vigenciaInicial);
+        aux[i].diasTrabalhados = CalculosEstagio.calcularDiasTrabalhados(dataInicial);
+
+    }
     //aux["diasTrabalhados"] = CalculosEstagio.calcularDiasTrabalhados(esta[0].vigenciaInicial, esta[0].vigenciaFinal);
     //esta[0] = aux;
     //console.log(aux);
     res.render('estagio/listarEstagios', {estagios: aux});
 });
 
-Router.post('/cadastro/novo', (req, res) => {
+Router.post('/cadastro/novo', async (req, res) => {
+
+    let estag = await Estagiario.findById(req.body._id);
+    //estagiario = estagiario.map(estagiario => estagiario.toObject());
 
     const novoEstagio = {
         natureza: req.body.natureza,
@@ -44,17 +59,31 @@ Router.post('/cadastro/novo', (req, res) => {
         seguradora: req.body.seguradora,
         bolsaEstagio: req.body.bolsaEstagio,
         auxilioTransporte: req.body.auxilioTransporte,
-        planoDeAtividades: req.body.planoDeAtividades
+        planoDeAtividades: req.body.planoDeAtividades,
+        estagiario: estag
     };
 
     let save = new Estagio(novoEstagio);
 
     try{
-        save.save();
+        await save.save();
         res.redirect("/estagios/listar");
     }catch(err){
         console.log("falhou a criação do estágio: " + err);
     }
+
+    /*
+    console.log();
+    aux = await Estagio.findById(save._id);
+    /*
+    Estagio.updateOne(
+        {_id: save._id}, 
+        { $set: {'estagiario': 'estag'}},
+        {upsert:true}
+    );
+    */
+
+
 });
 
 module.exports = Router;

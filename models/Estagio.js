@@ -78,6 +78,9 @@ const Estagio = new Schema({
         type: String,
         required: true
     },
+    estagiario:{
+        type: Object
+    },
     registerDate: {
         type: Date,
         default: Date.now()

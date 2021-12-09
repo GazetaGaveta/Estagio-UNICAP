@@ -1,53 +1,115 @@
-<h3>Novo estágio</h3>
-<div>
-    <div>
-        <form action="/estagios/cadastro/novo" method="POST">
-            <label for="nome">Natureza: </label>
-                <input type="text" id="natureza" name="natureza" placeholder="natureza" class="form-control-plaintex" value={{natureza}}>
-            <br>
-            <label for="vigenciaInicial">Vigencia Inicial: </label>
-                <input type="text" id="vigenciaInicial" name="vigenciaInicial" placeholder="dd/mm/AAAA" class="form-control-plaintex" value={{vigenciaInicial}}>
-            <br>
-            <label for="vigenciaFinal">Vigência Final: </label>
-                <input type="text" id="vigenciaFinal" name="vigenciaFinal" placeholder="dd/mm/AAAA" class="form-control-plaintex" value={{vigenciaFinal}}>
-            <br>
-            <label for="dias">Dias: </label>
-                <input type="text" id="dias" name="dias" placeholder="dias" class="form-control-plaintex" value={{dias}}>
-            <br>
-            <label for="horario">Horário: </label>
-                <input type="text" id="horario" name="horario" placeholder="horario" class="form-control-plaintex" value={{turno}}>
-            <br>
-            <label for="qtdhorasDiarias">Horas diárias: </label>
-                <input type="text" id="qtdhorasDiarias" name="qtdhorasDiarias" placeholder="horas diárias" class="form-control-plaintex" value={{cedulaDeIdentidade}}>
-            <br>
-            <label for="qtdHorasSemanais">Horas semanais: </label>
-                <input type="text" id="qtdHorasSemanais" name="qtdHorasSemanais" placeholder="horas semanais" class="form-control-plaintex" value={{cpf}}>
-            <br>
-            <label for="local">Local: </label>
-                <input type="text" id="local" name="local" placeholder="local" class="form-control-plaintex" value={{nacionalidade}}>
-            <br>
-            <label for="supervisor">Supervisor: </label>
-                <input type="text" id="supervisor" name="supervisor" placeholder="supervisor" class="form-control-plaintex" value={{estadoCivil}}>
-            <br>
-            <label for="cargo">Cargo: </label>
-                <input type="text" id="cargo" name="cargo" placeholder="cargo" class="form-control-plaintex" value={{cidade}}>
-            <br>
-            <label for="apoliceDeSeguro">Apólice de Seguro: </label>
-                <input type="text" id="apoliceDeSeguro" name="apoliceDeSeguro" placeholder="apólice de seguro" class="form-control-plaintex" value={{estado}}>
-            <br>
-            <label for="seguradora">Seguradora: </label>
-                <input type="text" id="seguradora" name="seguradora" placeholder="seguradora" class="form-control-plaintex" value={{cep}}>
-            <br>
-            <label for="bolsaEstagio">Bolsa-Estágio: </label>
-                <input type="text" id="bolsaEstagio" name="bolsaEstagio" placeholder="bolsa-estágio" class="form-control-plaintex" value={{fone}}>
-            <br>
-            <label for="auxilioTransporte">Auxílio-Transporte: </label>
-                <input type="text" id="auxilioTransporte" name="auxilioTransporte" placeholder="auxílio-transporte" class="form-control-plaintex" value={{email}}>
-            <br>
-            <label for="planoDeAtividades">Plano de atividades: </label>
-                <input type="text" id="planoDeAtividades" name="planoDeAtividades" placeholder="plano de atividades" class="form-control-plaintex" value={{email}}>
-            <br>
-            <button>Cadastrar estágio</button>
-        </form>
+<h3 class="m-2">Novo estágio</h3>
+
+<form action="/estagios/cadastro/novo" method="POST">
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="natureza">Natureza: </label>
+            <input type="text" class="form-control" id="natureza" name="natureza" placeholder="natureza" value={{natureza}}>
+        </div>
     </div>
-</div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="vigenciaInicial">Vigencia Inicial: </label>
+            <input type="text" class="form-control" id="vigenciaInicial" name="vigenciaInicial" placeholder="dd/mm/AAAA" value={{vigenciaInicial}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="vigenciaFinal">Vigência Final: </label>
+            <input type="text" class="form-control" id="vigenciaFinal" name="vigenciaFinal" placeholder="dd/mm/AAAA" value={{vigenciaFinal}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-4">
+            <label for="dias">Dias: </label>
+            <input type="text" class="form-control" id="dias" name="dias" placeholder="dias" value={{dias}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="horario">Horário: </label>
+            <input type="text" class="form-control" id="horario" name="horario" placeholder="horario" value={{horario}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="qtdhorasDiarias">Horas diárias: </label>
+            <input type="text" class="form-control" id="qtdhorasDiarias" name="qtdhorasDiarias" placeholder="horas diárias" value={{horas}}>
+        </div>
+         <div class="form-group col-md-3">
+            <label for="qtdHorasSemanais">Horas semanais: </label>
+            <input type="text" class="form-control" id="qtdHorasSemanais" name="qtdHorasSemanais" placeholder="horas semanais" value={{qtdHorasSemanais}}>
+         </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="local">Local: </label>
+            <input type="text" class="form-control" id="local" name="local" placeholder="local" value={{local}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="supervisor">Supervisor: </label>
+            <input type="text" class="form-control" id="supervisor" name="supervisor" placeholder="supervisor" value={{supervisor}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="cargo">Cargo: </label>
+            <input type="text" class="form-control" id="cargo" name="cargo" placeholder="cargo" value={{cargo}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="apoliceDeSeguro">Apólice de Seguro: </label>
+            <input type="text" class="form-control" id="apoliceDeSeguro" name="apoliceDeSeguro" placeholder="apólice de seguro" value={{apoliceDeSeguro}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="seguradora">Seguradora: </label>
+            <input type="text" class="form-control" id="seguradora" name="seguradora" placeholder="seguradora" value={{seguradora}}>
+        </div>
+    </div>
+    
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="bolsaEstagio">Bolsa-Estágio: </label>
+            <input type="text" class="form-control" d="bolsaEstagio" name="bolsaEstagio" placeholder="bolsa-estágio" value={{bolsaEstagio}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="auxilioTransporte">Auxílio-Transporte: </label>
+            <input type="text" class="form-control" id="auxilioTransporte" name="auxilioTransporte" placeholder="auxílio-transporte" value={{auxilioTransporte}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-5">
+            <label for="planoDeAtividades">Plano de atividades: </label>
+            <textarea type="text" class="form-control" id="planoDeAtividades" name="planoDeAtividades" placeholder="plano de atividades" value={{planoDeAtividades}}></textarea>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="_id">Estagiário</label>
+            <select for="_id" class="form-control" id="_id" name="_id">
+                {{#each estagiarios}}
+                    <option type="text" value={{_id}}>{{nome}}</option>
+                {{else}}
+                    <option>Sem estagiários</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="_id">Unidade Concedente</label>
+            <select for="_id" class="form-control" id="_id" name="_id">
+                {{#each unidadesConcedentes}}
+                    <option type="text" value={{_id}}></option>
+                {{else}}
+                    <option>Sem Unidades Concedentes</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+    <button class="btn btn-primary m-3">Cadastrar estágio</button>
+</form>
