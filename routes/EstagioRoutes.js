@@ -4,8 +4,10 @@ const Router = Express.Router();
 const Mongoose = require("mongoose");
 require("../models/Estagio")
 require("../models/Estagiario")
+require("../models/UnidadeConcedente")
 const Estagio = Mongoose.model("estagios");
 const Estagiario = Mongoose.model("estagiarios");
+const UnidadeConcedente = Mongoose.model("unidadesConcedentes");
 
 
 const CalculosEstagio = require("../calculosEstagio");
@@ -15,9 +17,12 @@ Router.get('/cadastro', async (req, res) => {
     let estagiarios = await Estagiario.find();
     estagiarios = estagiarios.map(estagiarios => estagiarios.toObject());
 
+    let unidadesConcedentes = await UnidadeConcedente.find();
+    unidadesConcedentes = unidadesConcedentes.map(unidadesConcedentes => unidadesConcedentes.toObject());
+
     //console.log(estagiarios);
 
-    res.render('estagio/cadastroEstagio', {estagiarios: estagiarios});
+    res.render('estagio/cadastroEstagio', {estagiarios: estagiarios, unidadesConcedentes: unidadesConcedentes});
 });
 
 Router.get('/listar', async (req, res) => {
@@ -41,7 +46,8 @@ Router.get('/listar', async (req, res) => {
 
 Router.post('/cadastro/novo', async (req, res) => {
 
-    let estag = await Estagiario.findById(req.body._id);
+    let estag = await Estagiario.findById(req.body._idEstagiario);
+    let uniConce = await UnidadeConcedente.findById(req.body._idConcedente);
     //estagiario = estagiario.map(estagiario => estagiario.toObject());
 
     const novoEstagio = {
@@ -60,7 +66,8 @@ Router.post('/cadastro/novo', async (req, res) => {
         bolsaEstagio: req.body.bolsaEstagio,
         auxilioTransporte: req.body.auxilioTransporte,
         planoDeAtividades: req.body.planoDeAtividades,
-        estagiario: estag
+        estagiario: estag,
+        unidadeConcedente: uniConce
     };
 
     let save = new Estagio(novoEstagio);

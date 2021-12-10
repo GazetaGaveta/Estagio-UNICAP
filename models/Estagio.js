@@ -81,6 +81,9 @@ const Estagio = new Schema({
     estagiario:{
         type: Object
     },
+    unidadeConcedente: {
+        type: Object
+    },
     registerDate: {
         type: Date,
         default: Date.now()

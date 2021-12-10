@@ -2,12 +2,20 @@
 
 <form action="/estagios/cadastro/novo" method="POST">
     <div class="row ms-2 mt-2">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="natureza">Natureza: </label>
             <input type="text" class="form-control" id="natureza" name="natureza" placeholder="natureza" value={{natureza}}>
         </div>
+        <div class="form-group col-md-3">
+            <label for="vigenciaInicial">Vigencia Inicial: </label>
+            <input type="text" class="form-control" id="vigenciaInicial" name="vigenciaInicial" placeholder="dd/mm/AAAA" value={{vigenciaInicial}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="vigenciaFinal">Vigência Final: </label>
+            <input type="text" class="form-control" id="vigenciaFinal" name="vigenciaFinal" placeholder="dd/mm/AAAA" value={{vigenciaFinal}}>
+        </div>
     </div>
-
+<!--
     <div class="row ms-2 mt-2">
         <div class="form-group col-md-3">
             <label for="vigenciaInicial">Vigencia Inicial: </label>
@@ -18,7 +26,7 @@
             <input type="text" class="form-control" id="vigenciaFinal" name="vigenciaFinal" placeholder="dd/mm/AAAA" value={{vigenciaFinal}}>
         </div>
     </div>
-
+-->
     <div class="row ms-2 mt-2">
         <div class="form-group col-md-4">
             <label for="dias">Dias: </label>
@@ -50,9 +58,6 @@
             <label for="supervisor">Supervisor: </label>
             <input type="text" class="form-control" id="supervisor" name="supervisor" placeholder="supervisor" value={{supervisor}}>
         </div>
-    </div>
-
-    <div class="row ms-2 mt-2">
         <div class="form-group col-md-3">
             <label for="cargo">Cargo: </label>
             <input type="text" class="form-control" id="cargo" name="cargo" placeholder="cargo" value={{cargo}}>
@@ -91,7 +96,7 @@
     <div class="row ms-2 mt-2">
         <div class="form-group col-md-3">
             <label for="_id">Estagiário</label>
-            <select for="_id" class="form-control" id="_id" name="_id">
+            <select for="_id" class="form-control" id="_idEstagiario" name="_idEstagiario">
                 {{#each estagiarios}}
                     <option type="text" value={{_id}}>{{nome}}</option>
                 {{else}}
@@ -101,9 +106,9 @@
         </div>
         <div class="form-group col-md-3">
             <label for="_id">Unidade Concedente</label>
-            <select for="_id" class="form-control" id="_id" name="_id">
+            <select for="_id" class="form-control" id="_idConcedente" name="_idConcedente">
                 {{#each unidadesConcedentes}}
-                    <option type="text" value={{_id}}></option>
+                    <option type="text" value={{_id}}>{{cnpjOuMf}}</option>
                 {{else}}
                     <option>Sem Unidades Concedentes</option>
                 {{/each}}

@@ -37,7 +37,7 @@ Router.post('/cadastro/novo', (req, res) => {
 
     try{
         save.save();
-        res.redirect("/concedente/listar");
+        res.redirect("/concedentes/listar");
     }catch(err){
         console.log("falhou a criação da unidade concedente: " + err);
     }
