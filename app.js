@@ -32,6 +32,12 @@ const PORT = 8080;
     }
 
 // Rotas
+
+app.get('/', (req, res) => {
+    res.render('home/home');
+    //res.send("Página de cadastro de estagiário");
+});
+
 app.use('/estagiarios', Estagiario);
 app.use('/estagios', Estagio);
 app.use('/concedentes', UnidadeConcedente);
