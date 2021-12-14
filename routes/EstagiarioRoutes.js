@@ -1,14 +1,15 @@
+// Carregamento de módulos
 const Express = require("express");
 const Router = Express.Router();
-
 const Mongoose = require("mongoose");
+const estagiarioValidation = require('../estagiarioValidation');
+
+// Carregamento dos modelos do banco
 require("../models/Estagiario")
 const Estagiario = Mongoose.model("estagiarios");
 
-const estagiarioValidation = require('../estagiarioValidation');
-
+// Rotas
 var estagiarioDigitado = {};
-
 
 Router.get('/cadastro', (req, res) => {
     res.render('estagiario/cadastroEstagiario', estagiarioDigitado);
@@ -91,6 +92,7 @@ function validarEstagiario(estagiario){
     estagiarioValidation.validarEmail(estagiario.email);
 }
 
+module.exports = Router;
 /*
 function isEmpyt(value){
     return (!value || typeof value == undefined || value == null);
@@ -259,4 +261,3 @@ function validarEmail(email){
     return validarTamanho(email) && email.indexOf("@") != -1;
 };
 */
-module.exports = Router;

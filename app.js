@@ -2,7 +2,6 @@
 const Express = require("express");
 const Handlebars = require("express-handlebars");
 const BodyParser = require("body-parser");
-
 const Mongoose = require("mongoose");
     // Routes
     const Estagiario = require("./routes/EstagiarioRoutes");
@@ -12,7 +11,7 @@ const Mongoose = require("mongoose");
 // Iniciando express
 const app = Express();
 
-// Constantes
+// Porta
 const PORT = 8080;
 
 // Configurações
@@ -32,7 +31,6 @@ const PORT = 8080;
     }
 
 // Rotas
-
 app.get('/', (req, res) => {
     res.render('home/home');
     //res.send("Página de cadastro de estagiário");

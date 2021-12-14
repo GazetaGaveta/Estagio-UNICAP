@@ -1,10 +1,18 @@
+
+/*
+função que calculcula quantos dias se passaram, começando de uma data especifica 
+e indo até a data atual no momento em  que a função foi chamada. A função 
+disconsidera os finais de semana.
+
+Função recebe uma string representando a dada e no formato dd/mm/AAAA.
+*/
 function calcularDiasTrabalhados(dataInicial)
 {
 
     let dataFinal = Date.now();
     dataFinal = new Date(dataFinal);
 
-    ///////
+    /* Passa a data recebida para o formato mm/dd/AAAA. */
     let partes = dataInicial.toJSON().split('-');
 
     let day = parseInt(partes[1]);
@@ -14,7 +22,7 @@ function calcularDiasTrabalhados(dataInicial)
     dataInicial = new Date(`${month}/${day}/${year}`);
     ////////
 
-    //////////
+    /* Cria um novo objeto Date para a data atual, desconsiderando as horas.*/
     partes = dataFinal.toJSON().split('-');
 
     day = parseInt(`${partes[2][0] + partes[2][1]}`);
@@ -43,6 +51,9 @@ function calcularDiasTrabalhados(dataInicial)
 
     return qtdDias;
 }
+
+
+//Restante das funções foram feitas antes do programa e precisam ser modificadas.
 
 function calcularHorasTrabalhadas(dataInicio, dataAtual, horasDiarias){
 
