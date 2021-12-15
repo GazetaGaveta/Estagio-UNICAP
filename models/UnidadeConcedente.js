@@ -14,6 +14,7 @@ Profissional Liberal – Registro Profissional nº:       Órgão:
 */
 
 const UnidadeConcedente = new Schema({
+    //Pela forma como os papeis são preenchidos, parece ser o nome da unidade concedente.
     razaoSocial: {
         type: String,
         required: true

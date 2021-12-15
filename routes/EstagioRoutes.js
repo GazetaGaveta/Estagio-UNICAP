@@ -1,7 +1,10 @@
+// Carregamento de módulos
 const Express = require("express");
 const Router = Express.Router();
-
 const Mongoose = require("mongoose");
+const CalculosEstagio = require("../calculosEstagio");
+
+// Carregamento dos modelos do banco de dados
 require("../models/Estagio")
 require("../models/Estagiario")
 require("../models/UnidadeConcedente")
@@ -9,9 +12,12 @@ const Estagio = Mongoose.model("estagios");
 const Estagiario = Mongoose.model("estagiarios");
 const UnidadeConcedente = Mongoose.model("unidadesConcedentes");
 
+//Rotas
 
-const CalculosEstagio = require("../calculosEstagio");
-
+/*
+Rota que renderiza a página do formulário de cadastro.
+Lista no formulário todos os estagiários e unidades concedentes.
+*/
 Router.get('/cadastro', async (req, res) => {
 
     let estagiarios = await Estagiario.find();
@@ -25,6 +31,11 @@ Router.get('/cadastro', async (req, res) => {
     res.render('estagio/cadastroEstagio', {estagiarios: estagiarios, unidadesConcedentes: unidadesConcedentes});
 });
 
+/*
+Rota que renderiza a página da lista de todos os estágios do banco de dados.
+Também realiza um cálculo referente a quantidade de dias trabalhados desde o inicio do estágio
+até o momento atual.
+*/
 Router.get('/listar', async (req, res) => {
     let estagios = await Estagio.find().sort({registerDate: "desc"});//.then((estagios) => {
         //res.render('estagio/listarEstagios', {estagios: estagios.map(estagios => estagios.toJSON())});
@@ -44,6 +55,7 @@ Router.get('/listar', async (req, res) => {
     res.render('estagio/listarEstagios', {estagios: aux});
 });
 
+//Rota que cria um novo estágio no banco de daddos a partir dos dados recebidos do formulário de cadastro.
 Router.post('/cadastro/novo', async (req, res) => {
 
     let estag = await Estagiario.findById(req.body._idEstagiario);

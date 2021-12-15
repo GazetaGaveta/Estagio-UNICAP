@@ -4,18 +4,20 @@ const Router = Express.Router();
 const Mongoose = require("mongoose");
 const estagiarioValidation = require('../estagiarioValidation');
 
-// Carregamento dos modelos do banco
+// Carregamento dos modelos do banco de dados
 require("../models/Estagiario")
 const Estagiario = Mongoose.model("estagiarios");
 
 // Rotas
 var estagiarioDigitado = {};
 
+//Rota que renderiza a página do formulário de cadastro.
 Router.get('/cadastro', (req, res) => {
     res.render('estagiario/cadastroEstagiario', estagiarioDigitado);
     //res.send("Página de cadastro de estagiário");
 });
 
+//Rota que renderiza a página da lista de todos os estagiários do banco de dados.
 Router.get('/listar', (req, res) => {
     Estagiario.find().sort({registerDate: "desc"}).then((estagiarios) => {
         res.render('estagiario/listarEstagiarios', {estagiarios: estagiarios.map(estagiarios => estagiarios.toJSON())});
@@ -23,6 +25,7 @@ Router.get('/listar', (req, res) => {
     //res.send("Página de cadastro de estagiário");
 });
 
+//Rota que cria um novo estagiário no banco de dados a partir dos dados recebidos do formulário de cadastro.
 Router.post('/cadastro/novo', (req, res) => {
 
     estagiarioDigitado = {
@@ -74,6 +77,7 @@ Router.post('/cadastro/novo', (req, res) => {
     }
 });
 
+//Validação das informações do formulario do estagiário.
 function validarEstagiario(estagiario){
 
     return estagiarioValidation.validarNome(estagiario.nome) &

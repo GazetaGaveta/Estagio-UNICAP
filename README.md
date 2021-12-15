@@ -1,8 +1,15 @@
-A maioria do projeto foi baseado nos conteúdos da playlist [*Curso de Node.js*](https://www.youtube.com/watch?v=LLqq6FemMNQ&list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B), feita pelo canal 
+# Introdução
+Aplicação Web para acompanhamento dos estágios realizados pelos estagiários estudantes de computação da unicap.
+
+O projeto foi baseado nos conteúdos da playlist [*Curso de Node.js*](https://www.youtube.com/watch?v=LLqq6FemMNQ&list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B), feita pelo canal 
 [*Victor Lima - Guia do Programador*](https://www.youtube.com/channel/UC_issB-37g9lwfAA37fy2Tg).
 
-Projeto utilizando NodeJs, Handlebars, MongoDB, Mongoose, Express e Body-parser.
-Instalados utilizando npm.
+Projeto utilizando NodeJs, Handlebars(express-handlebars), MongoDB, Mongoose, Express e Body-parser. Instalados utilizando npm.
+
+# Models
+A pasta models possui os três arquivos que representam as Collections no banco de dados.
+
+[![](https://imgur.com/7idICmn)](https://imgur.com/7idICmn)
 
 # Em construção
 
