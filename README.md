@@ -37,6 +37,7 @@ Também Calcula quantos dias de estágio já se passaram da data de vigência at
 
 A pasta [*models*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/models) possui os três arquivos JavaScript que definem a estrutura das Collections (ou tabelas, ou como você quiser chamar) no banco de dados.  
 ![](/readmeImages/7idICmn.png)
+O estágio precisava estar ligado a uma unidade concedente e a um estagiário. Para fazer essa ligação, foram criados 2 campos, um para o estagiário e o outro para a unidade concedente, no model do estágio. Dessa forma, o estágio guarda uma cópia desses dois objetos.
 
 # Routes e app.js
 
@@ -69,4 +70,9 @@ Onde cada rota especifica, do conjunto de rotas, é chamado usando a url `localh
 
 # Views
 
-A pasta [*views*]() contem os arquivos .handlebars para serem renderizados no site.
+A pasta [*views*]() contem os arquivos .handlebars para serem renderizados no site.  
+Existe um aquivo com a página de cadastro e de listagem para estagiários, estágios e unidades concedentes.
+A pasta [*layouts*]() contém o main.handlebars, onde são carregados os scripts e styles. O main é a base para todas as páginas utilizadas no projeto, e uma midificação no main afetará todas elas.  
+Na pasta [*partials*]() está o arquivo da Barra de navegação.
+
+Para usar o Bootstrap, só é necessário colocar as classes que deseja no elementos html que precisam ter determinada propriedade ou estilo. A [*documentação do Bootstrap*]() fornece o necessário para utilizar as classes e modelos prontos de elementos das páginas.
