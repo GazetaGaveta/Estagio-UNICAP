@@ -56,7 +56,7 @@ try{
 }
 ```
 
-Os conjuntos de rotas são encontratos na pasta [*routes*](). Um conjunto de rotas é um arquivo com várias rotas que se complementam ou trabalham juntas, e podem ser organizadas em um mesmo grupo.  
+Os conjuntos de rotas são encontratos na pasta [*routes*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/routes). Um conjunto de rotas é um arquivo com várias rotas que se complementam ou trabalham juntas, e podem ser organizadas em um mesmo grupo.  
 Existem 3 arquivos de conjuntos de rotas: um para as rotas que dizem respeito aos dados dos estagiários, um para as rotas que dizem respeito as unidades concedentes e um para as rotas que dizem respeito aos estágios.
 
 Todos os nomes das raízes para os conjuntos de rotas são definidas no app.js baseando-se no código a serguir.  
@@ -70,9 +70,9 @@ Onde cada rota especifica, do conjunto de rotas, é chamado usando a url `localh
 
 # Views
 
-A pasta [*views*]() contem os arquivos .handlebars para serem renderizados no site.  
-Existe um aquivo com a página de cadastro e de listagem para estagiários, estágios e unidades concedentes.
-A pasta [*layouts*]() contém o main.handlebars, onde são carregados os scripts e styles. O main é a base para todas as páginas utilizadas no projeto, e uma midificação no main afetará todas elas.  
-Na pasta [*partials*]() está o arquivo da Barra de navegação.
+A pasta [*views*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/views) contem os arquivos .handlebars para serem renderizados no site.  
+Existe um aquivo com a página de cadastro e de listagem para estagiários, estágios e unidades concedentes, ambos os arquivos estão e suas próprias pastas.  
+A pasta [*layouts*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/views/layouts) contém o main.handlebars, onde são carregados os scripts e styles. O main é a base para todas as páginas utilizadas no projeto, e uma midificação no main afetará todas elas.  
+Na pasta [*partials*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/views/partials) está o arquivo da Barra de navegação.
 
-Para usar o Bootstrap, só é necessário colocar as classes que deseja no elementos html que precisam ter determinada propriedade ou estilo. A [*documentação do Bootstrap*]() fornece o necessário para utilizar as classes e modelos prontos de elementos das páginas.
+Para usar o Bootstrap, só é necessário colocar as classes que deseja no elementos html que precisam ter determinada propriedade ou estilo. A [*documentação do Bootstrap*](https://getbootstrap.com/docs/5.1/getting-started/introduction/) fornece o necessário para utilizar as classes e modelos prontos de elementos das páginas.
