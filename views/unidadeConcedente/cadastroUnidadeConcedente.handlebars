@@ -29,30 +29,49 @@
         </div>
     </div>
 
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="cidade">Cidade: </label>
+            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="cidade" value={{turno}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="estado">Estado: </label>
+            <input type="text" class="form-control" id="estado" name="estado" placeholder="estado" value={{cedulaDeIdentidade}}>
+        </div>
+    </div>
 
-    <label for="cidade">Cidade: </label>
-        <input type="text" id="cidade" name="cidade" placeholder="cidade" class="form-control-plaintex" value={{turno}}>
-    <br>
-    <label for="estado">Estado: </label>
-        <input type="text" id="estado" name="estado" placeholder="estado" class="form-control-plaintex" value={{cedulaDeIdentidade}}>
-    <br>
-    <label for="fone">Telefone: </label>
-        <input type="text" id="fone" name="fone" placeholder="telefone" class="form-control-plaintex" value={{nacionalidade}}>
-    <br>
-    <label for="email">Email: </label>
-        <input type="text" id="email" name="email" placeholder="email" class="form-control-plaintex" value={{estadoCivil}}>
-    <br>
-    <label for="representanteLegal">Representante Legal: </label>
-        <input type="text" id="representanteLegal" name="representanteLegal" placeholder="representante legal" class="form-control-plaintex" value={{cidade}}>
-    <br>
-    <label for="cargo">Cargo: </label>
-        <input type="text" id="cargo" name="cargo" placeholder="cargo" class="form-control-plaintex" value={{estado}}>
-    <br>
-    <label for="profissionalRegistroOuLiberal">Registro Profissional ou Profissional Liberal: </label>
-        <input type="text" id="profissionalRegistroOuLiberal" name="profissionalRegistroOuLiberal" placeholder="Registro Profissional ou Profissional Liberal" class="form-control-plaintex" value={{cep}}>
-    <br>
-    <label for="orgao">Orgão: </label>
-        <input type="text" id="orgao" name="orgao" placeholder="orgão" class="form-control-plaintex" value={{fone}}>
-    <br>
-    <button>Cadastrar Unidade Concedente</button>
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="fone">Telefone: </label>
+            <input type="text" class="form-control" id="fone" name="fone" placeholder="telefone" value={{nacionalidade}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="email">Email: </label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="email" value={{estadoCivil}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="representanteLegal">Representante Legal: </label>
+            <input type="text" class="form-control" id="representanteLegal" name="representanteLegal" placeholder="representante legal" value={{cidade}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cargo">Cargo: </label>
+            <input type="text" class="form-control" id="cargo" name="cargo" placeholder="cargo" value={{estado}}>
+        </div>
+    </div>
+
+    <div class="row ms-2 mt-2">
+        <div class="form-group col-md-3">
+            <label for="profissionalRegistroOuLiberal">Registro Profissional ou Profissional Liberal: </label>
+            <input type="text" class="form-control" id="profissionalRegistroOuLiberal" name="profissionalRegistroOuLiberal" placeholder="Registro Profissional ou Profissional Liberal" value={{cep}}>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="orgao">Orgão: </label>
+            <input type="text" class="form-control" id="orgao" name="orgao" placeholder="orgão" value={{fone}}>
+        </div>
+    </div>
+
+    <button class="btn btn-primary m-3">Cadastrar Unidade Concedente</button>
 </form>
