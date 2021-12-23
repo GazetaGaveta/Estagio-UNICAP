@@ -75,4 +75,4 @@ Existe um aquivo com a página de cadastro e de listagem para estagiários, est�
 A pasta [*layouts*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/views/layouts) contém o main.handlebars, onde são carregados os scripts e styles. O main é a base para todas as páginas utilizadas no projeto, e uma midificação no main afetará todas elas.  
 Na pasta [*partials*](https://github.com/GazetaGaveta/Estagio-UNICAP/tree/main/views/partials) está o arquivo da Barra de navegação.
 
-Para usar o Bootstrap, só é necessário colocar as classes que deseja no elementos html que precisam ter determinada propriedade ou estilo. A [*documentação do Bootstrap*](https://getbootstrap.com/docs/5.1/getting-started/introduction/) fornece o necessário para utilizar as classes e modelos prontos de elementos das páginas.
+Para usar o Bootstrap, só é necessário colocar as classes que deseja nos elementos html que precisam ter determinada propriedade ou estilo. A [*documentação do Bootstrap*](https://getbootstrap.com/docs/5.1/getting-started/introduction/) fornece o necessário para utilizar as classes e modelos prontos de elementos das páginas.
